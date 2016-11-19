@@ -11,8 +11,6 @@ import {HomePage} from "../home/home.page";
 })
 export class OfficePage {
 
-
-  //ciao
   constructor(public nav: NavController) {
   }
 
