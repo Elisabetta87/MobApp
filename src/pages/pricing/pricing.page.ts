@@ -10,7 +10,7 @@ export class PricingPage {
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
-    console.log('Hello PricingPage Page');
+
   }
 
 }

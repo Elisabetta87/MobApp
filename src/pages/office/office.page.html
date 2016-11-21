@@ -8,5 +8,21 @@
 </ion-header>
 
 <ion-content>
-<button (click)="goBack()">Home</button>
+  <!-- geolocation lat lng -->
+  <button full (click)="getGeolocation()">My location</button>
+
+  <div *ngIf="location">
+    <h3>Latitude: {{location.lat}}</h3>
+    <h3>Longitude: {{location.lng}}</h3>
+  </div>
+
+
+  <h1>{{ title }}</h1>
+
+  <!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+
+  <sebm-google-map [latitude]="lat" [longitude]="lng">
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  </sebm-google-map>
 </ion-content>

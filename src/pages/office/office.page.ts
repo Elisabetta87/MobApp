@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
 import { NavController} from 'ionic-angular';
-import {HomePage} from "../home/home.page";
+import {Geolocation} from "ionic-native/dist/es5/index";
 
+import 'rxjs';
 
 
 @Component({
@@ -11,10 +11,29 @@ import {HomePage} from "../home/home.page";
 })
 export class OfficePage {
 
+  /*lat and lng office*/
+  title: string = 'Office location';
+  lat: number = 51.5269772;
+  lng: number = -0.0905013;
+
+  location: {lat: number, lng: number};
+
+
   constructor(public nav: NavController) {
   }
 
-  goBack() {
-    this.nav.pop(HomePage);
+
+  getGeolocation() {
+    Geolocation.getCurrentPosition().then((resp) => {
+      this.location = {
+        lat: resp.coords.latitude,
+        lng: resp.coords.longitude
+      }
+    })
+
   }
+
+
+
 }
+
